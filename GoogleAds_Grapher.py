@@ -151,7 +151,7 @@ def get_column(df):
 	non_index = 0
 	index = 0
 	while True:		
-		column_number_input = input("\nEnter a column number, indexes first: ")
+		column_number_input = input("\nNhập số cột, lập chỉ mục trước: ")
 
 		try:
 			column_number = int(column_number_input)
@@ -163,13 +163,13 @@ def get_column(df):
 		          	  index += 1
 		          	break  
 			else:
-		  		print("Invalid column number. Please try again.")
+		  		print("Số cột không hợp lệ. Vui lòng thử lại.")
     
 		except ValueError:
-			print("Invalid input. Please enter a valid column number.")
+			print("Đầu vào không hợp lệ. Vui lòng nhập số cột hợp lệ.")
 
 	while (index == 0 and non_index < 2) or (index > 0 and non_index == 0):
-		column_number_input = input("\nEnter another column number, or press Enter to skip: ")
+		column_number_input = input("\nNhập số cột khác hoặc nhấn Enter để bỏ qua: ")
 		if column_number_input == "":
 		  	   break 
 		try:
@@ -183,10 +183,10 @@ def get_column(df):
 		  		elif column_number in columns:
 		  		  pass
 		  		else:
-		  			print("Invalid column number. Please try again.")
+		  			print("Số cột không hợp lệ. Vui lòng thử lại.")
 		  			
 		except ValueError:
-		  print("Invalid input. Please enter a valid column number or press Enter to skip.")
+		  print("Đầu vào không hợp lệ. Vui lòng nhập số cột hợp lệ hoặc nhấn Enter để bỏ qua.")
 	 
 	columns.sort()  
 	return columns
@@ -258,7 +258,7 @@ def check_path():
     df = parse_xml()
     return df
   except FileNotFoundError:
-    check = input("Invalid file path, try again or press Enter to exit: ")
+    check = input("Đường dẫn file không hợp lệ, thử lại hoặc nhấn Enter để thoát: ")
     if check == "":
       sys.exit()
     else:
@@ -266,7 +266,7 @@ def check_path():
       file_path = check
       df = check_path()
   except ET.ParseError:
-    print("File is not a valid XML file. ")
+    print("Tệp không phải là tệp XML hợp lệ. ")
     sys.exit()
   except Exception as e:
     print(e)
