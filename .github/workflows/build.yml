@@ -24,7 +24,7 @@ jobs:
         pip install pyinstaller
 
     - name: Build the EXE
-      run: pyinstaller --onefile V6.py
+      run: pyinstaller --onefile GoogleAds_Grapher.py
 
     - name: List files in dist
       run: ls -R dist/
