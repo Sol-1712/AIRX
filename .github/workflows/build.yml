@@ -26,6 +26,9 @@ jobs:
     - name: Build the EXE
       run: pyinstaller --onefile V6.py
 
+    - name: List files in dist
+      run: ls -R dist/
+
     - name: Upload the EXE artifact
       uses: actions/upload-artifact@v3
       with:
