@@ -24,7 +24,7 @@ jobs:
         pip install pyinstaller
 
     - name: Build the EXE
-      pyinstaller --onefile V6.py
+      run: pyinstaller --onefile V6.py
 
     - name: Upload the EXE artifact
       uses: actions/upload-artifact@v3
