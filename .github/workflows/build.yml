@@ -1,0 +1,34 @@
+name: Build EXE
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python0version: '3.x'
+
+    - name: Install dependendencies
+      run: |
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Build the EXE
+      pyinstaller --onefile V6.py
+
+    - name: Upload the EXE artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: compiled-executable
+        path: dist/your_script.exe
+
